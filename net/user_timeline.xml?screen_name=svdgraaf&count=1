@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<statuses type="array">
+<status>
+  <created_at>Tue Jan 24 21:22:23 +0000 2012</created_at>
+  <id>161921813176266752</id>
+  <text>@stangrootes ik ook niet, zit voor het raam te wachten&#8230; :)</text>
+  <source>&lt;a href=&quot;http://itunes.apple.com/us/app/twitter/id409789998?mt=12&quot; rel=&quot;nofollow&quot;&gt;Twitter for Mac&lt;/a&gt;</source>
+  <truncated>false</truncated>
+  <favorited>false</favorited>
+  <in_reply_to_status_id>161920983932997632</in_reply_to_status_id>
+  <in_reply_to_user_id>46630587</in_reply_to_user_id>
+  <in_reply_to_screen_name>stangrootes</in_reply_to_screen_name>
+  <retweet_count>0</retweet_count>
+  <retweeted>false</retweeted>
+  <user>
+    <id>6468362</id>
+    <name>Sander van de Graaf</name>
+    <screen_name>svdgraaf</screen_name>
+    <location>haarlem, the netherlands</location>
+    <description>CTO and geek living in Haarlem, The Netherlands, loves drinking coffee at 13:37. Ponies are awesome, as are double rainbows.</description>
+    <profile_image_url>http://a2.twimg.com/profile_images/1546046761/image_normal.jpg</profile_image_url>
+    <profile_image_url_https>https://si0.twimg.com/profile_images/1546046761/image_normal.jpg</profile_image_url_https>
+    <url>http://svdgraaf.nl</url>
+    <protected>false</protected>
+    <followers_count>563</followers_count>
+    <profile_background_color>B2DFDA</profile_background_color>
+    <profile_text_color>333333</profile_text_color>
+    <profile_link_color>93A644</profile_link_color>
+    <profile_sidebar_fill_color>ffffff</profile_sidebar_fill_color>
+    <profile_sidebar_border_color>eeeeee</profile_sidebar_border_color>
+    <friends_count>105</friends_count>
+    <created_at>Thu May 31 10:51:30 +0000 2007</created_at>
+    <favourites_count>67</favourites_count>
+    <utc_offset>3600</utc_offset>
+    <time_zone>Amsterdam</time_zone>
+    <profile_background_image_url>http://a1.twimg.com/images/themes/theme13/bg.gif</profile_background_image_url>
+    <profile_background_image_url_https>https://si0.twimg.com/images/themes/theme13/bg.gif</profile_background_image_url_https>
+    <profile_background_tile>false</profile_background_tile>
+    <profile_use_background_image>true</profile_use_background_image>
+    <notifications></notifications>
+    <geo_enabled>true</geo_enabled>
+    <verified>false</verified>
+    <following></following>
+    <statuses_count>9303</statuses_count>
+    <lang>en</lang>
+    <contributors_enabled>false</contributors_enabled>
+    <follow_request_sent></follow_request_sent>
+    <listed_count>36</listed_count>
+    <show_all_inline_media>false</show_all_inline_media>
+    <default_profile>false</default_profile>
+    <default_profile_image>false</default_profile_image>
+    <is_translator>false</is_translator>
+  </user>
+  <geo/>
+  <coordinates/>
+  <place/>
+  <contributors/>
+</status>
+</statuses>
