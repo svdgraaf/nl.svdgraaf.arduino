@@ -1,0 +1,17 @@
+set
+aux
+tx
+rx
+en
+vcc
+gnd
+
+
+
+W: 119
+A: 97
+S: 115
+D: 100
+space: 32
+
+
