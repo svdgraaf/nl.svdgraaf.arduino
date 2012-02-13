@@ -5,6 +5,8 @@ from pygame.locals import *
 import serial
 
 s = serial.Serial('/dev/tty.SLAB_USBtoUART')
+# s = serial.Serial('/dev/tty.usbmodemfa141')
+# s = serial.Serial('/dev/tty.usbmodemfd131')
 pygame.init()
 
 done = False

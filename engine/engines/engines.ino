@@ -33,134 +33,117 @@ void loop()
     // say what you got:
     Serial.print("I received: ");
     Serial.println(incomingByte, DEC);
-    
-    if(incomingByte == 64)
-    {
-      keyUp = true;
-    }
-    
+    Serial.println(incomingByte);
+  
     switch(incomingByte)
     {
-      // W
-      case(119):
+      case 64:
+        keyUp = true;
+        break;
+      case 119:
+        // w
         if(keyUp == true)
         {
+          Serial.println("w = false, keyUp = true");
           w = false;
           keyUp = false;
         }
         else
         {
+          Serial.println("w = true, keyUp = false");
           w = true;
         }
-      break;
-      // A
-      case(97):
+        break;
+      case 97:
+        // a
         if(keyUp == true)
         {
+          Serial.println("a = false, keyUp = true");
           a = false;
           keyUp = false;
         }
         else
         {
+          Serial.println("a = true, keyUp = false");
           a = true;
-          d = false;
         }
-       break;
-       // S
-       case(115):
+        break;
+      case 115:
+        // s
         if(keyUp == true)
         {
+          Serial.println("s = false, keyUp = true");
           s = false;
           keyUp = false;
         }
         else
         {
+          Serial.println("s = true, keyUp = false");
           s = true;
         }
-         break;
-       // D
-       case(100):
+        break;
+      case 100:
+        // d
         if(keyUp == true)
         {
+          Serial.println("d = false, keyUp = true");
           d = false;
           keyUp = false;
         }
         else
         {
-          a = false;
+          Serial.println("d = true, keyUp = false");
           d = true;
         }
-       break;
-      }      
+        break;
+      default:
+        Serial.println("got nothing, full stop");
+        // full stop
+        keyUp = false;
+        w = false;
+        a = false;
+        s = false;
+        d = false;
+        analogWrite(E1, 0);
+        analogWrite(E2, 0);
+    }
   }
-      if(w)
-      {
-        Serial.println("w active");
-        digitalWrite(M1, HIGH);
-        digitalWrite(M2, HIGH);
-        analogWrite(E1, 255);
-        analogWrite(E2, 255);
-      }
-      
-      if(s)
-      {
-        Serial.println("s active");
-        digitalWrite(M1, LOW);
-        digitalWrite(M2, LOW);
-        analogWrite(E1, 255);
-        analogWrite(E2, 255);
-      }
-      
-      if(a)
-      {
-        Serial.println("a active");
-        analogWrite(E1, 255);
-        analogWrite(E2, 64);
-      }
-      else if(d)
-      {
-        Serial.println("d active");
-        analogWrite(E1, 64);
-        analogWrite(E2, 255);
-      }
+
+  // if forward
+  if(w)
+  {
+    // Serial.println("w active");
+    digitalWrite(M1, HIGH);
+    digitalWrite(M2, HIGH);
+    analogWrite(E1, 255);
+    analogWrite(E2, 255);
+  }
+  else if(s)
+  {
+    // Serial.println("s active");
+    digitalWrite(M1, LOW);
+    digitalWrite(M2, LOW);
+    analogWrite(E1, 255);
+    analogWrite(E2, 255);
+  }
+  else
+  {
+    // Serial.println("s/w not active");
+    analogWrite(E1, 0);
+    analogWrite(E2, 0);
+  }
+
+  if(a)
+  {
+    // Serial.println("a active");
+    analogWrite(E1, 255);
+    analogWrite(E2, 64);
+  }
+  else if(d)
+  {
+    // Serial.println("d active");
+    analogWrite(E1, 64);
+    analogWrite(E2, 255);
+  }
+
 }
-
-void stop()
-{
-  Serial.println("stop");
-  analogWrite(E1, 0);
-  analogWrite(E2, 0); 
-}
-
-void startForward()
-{
-  Serial.println("forward");
-  //  set the engines forward
-  digitalWrite(M1, LOW);
-  digitalWrite(M2, LOW);
-  
-  //  full power to the thrusters!
-  analogWrite(E1, 255);
-  analogWrite(E2, 255);
-}
-
-void stopMovement()
-{
-  // full stop
-  analogWrite(E1, 0);
-  analogWrite(E2, 0);
-}
-
-
-void startBackward()
-{
-  Serial.println("backward");
-  digitalWrite(M1, HIGH);
-  digitalWrite(M2, HIGH);
-  
-  //  full power to the thrusters!
-  analogWrite(E1, 255);
-  analogWrite(E2, 255);
-}
-
-
