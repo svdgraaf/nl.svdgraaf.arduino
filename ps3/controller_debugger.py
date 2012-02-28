@@ -9,6 +9,10 @@ pygame.init()
 j = pygame.joystick.Joystick(0)
 j.init()
 
+# s = serial.Serial('/dev/tty.SLAB_USBtoUART')
+# s = serial.Serial('/dev/tty.usbmodemfa141')
+# s = serial.Serial('/dev/tty.usbmodemfd131')
+
 print 'Initialized Joystick : %s' % j.get_name()
 print 'axis: %s, buttons: %s' % (j.get_numaxes(), j.get_numbuttons())
 
@@ -41,22 +45,17 @@ try:
                     
                     if axis1 < 0 and axis0 < 0:
                         # topleft
-                        print "topleft"
+                        left = 270 + int(90 * axis1 * -1)
                     elif axis1 > 0 and axis0 < 0:
-                        # topright
-                        print "bottomleft"
+                        # bottomleft
+                        left = 270 - int(90*axis1)
                     elif axis1 > 0 and axis0 > 0:
                         # bottomright
-                        print "bottomright"
+                        left = int(90 * axis1) + 90
                     elif axis1 < 0 and axis0 > 0:
-                        # bottomleft
-                        print "topright"
-                        
-
-                    # if axis2 < 0 and axis3 < 0:
-                    #     # topleft
-                    # elif axis2 > 0 and axis3 < 0:
-                    #     # topright
+                        # topright
+                        left = int(90 * axis1) + 90
+                    print left
                     
                         
             if event.type == JOYBUTTONUP:
