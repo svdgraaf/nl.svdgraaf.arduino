@@ -17,7 +17,7 @@ pygame.init()
 
 # start by sending full stop
 current = "[0|0|0|]"
-s.write(cmd)
+s.write(current)
 
 print 'Initialized Joystick : %s' % j.get_name()
 print 'axis: %s, buttons: %s, hats: %s' % (j.get_numaxes(), j.get_numbuttons(), j.get_numhats())
