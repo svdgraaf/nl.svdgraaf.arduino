@@ -10,9 +10,9 @@ pygame.init()
 j = pygame.joystick.Joystick(0)
 j.init()
 
-s = serial.Serial('/dev/tty.SLAB_USBtoUART')
+# s = serial.Serial('/dev/tty.SLAB_USBtoUART')
 # s = serial.Serial('/dev/tty.usbmodemfa141')
-# s = serial.Serial('/dev/tty.usbmodemfd131')
+s = serial.Serial('/dev/tty.usbmodemfd131')
 pygame.init()
 
 # start by sending full stop
@@ -28,11 +28,11 @@ while True:
 
   # check left joystick
   if j.get_axis(0) < -0.5:
-    a = 1
-    d = 0
-  elif j.get_axis(0) > 0.5:
     a = 0
     d = 1
+  elif j.get_axis(0) > 0.5:
+    a = 1
+    d = 0
   else:
     a = 0
     d = 0
