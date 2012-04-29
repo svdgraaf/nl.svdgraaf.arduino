@@ -1,5 +1,5 @@
 import serial
-s = serial.Serial('/dev/tty.usbmodemfd131')
+s = serial.Serial('/dev/tty.usbmodemfa141')
 
 import termios, fcntl, sys, os
 fd = sys.stdin.fileno()

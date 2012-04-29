@@ -1,8 +1,12 @@
 int pwmPin = 9;    // LED connected to digital pin 9
-int current_power = 100;
+int current_power = 120;
 
 void setup()  { 
     Serial.begin(9600); 
+    analogWrite( 3, current_power);
+    analogWrite( 9, current_power);
+    analogWrite( 10, current_power);
+    analogWrite( 11, current_power);
 } 
 
 void loop()  {
@@ -29,11 +33,15 @@ void loop()  {
     
     if(power != current_power)
     {
-      analogWrite( pwmPin, power);
+      analogWrite( 3, power);
+      analogWrite( 9, power);
+      analogWrite( 10, power);
+      analogWrite( 11, power);
       Serial.println(power);
       current_power = power;
     }
   }
 }
+
 
 
