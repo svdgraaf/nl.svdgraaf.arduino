@@ -68,13 +68,13 @@
   #define RECEIVER_328P
 
   // Motor declaration
-  #define MOTOR_PWM_Timer
+  #define MOTOR_PWM
 
-  // heading mag hold declaration
-  #ifdef HeadingMagHold
-    #define HMC5843
+  // Altitude declaration
+  #ifdef AltitudeHoldBaro
+    #define BMP085
   #endif
-
+  
   // Battery Monitor declaration
   #ifdef BattMonitor
     #define BattDefaultConfig DEFINE_BATTERY(0, 0, 15, 0.9, BM_NOPIN, 0, 0)
@@ -84,8 +84,8 @@
     #undef POWERED_BY_VIN        
   #endif
 
-  #undef AltitudeHoldBaro
-  #undef AltitudeHoldRangeFinder
+//  #undef AltitudeHoldBaro
+//  #undef AltitudeHoldRangeFinder
   #undef CameraControl
   #undef OSD
 
