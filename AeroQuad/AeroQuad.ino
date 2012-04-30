@@ -59,12 +59,10 @@
   #include <Device_I2C.h>
 
   // Gyroscope declaration
-//  #define ITG3200_ADDRESS_ALTERNATE
   #include <Gyroscope_ITG3200.h>
 
   // Accelerometer declaraion
   #include <Accelerometer_ADXL345.h>
-//  #include <Accelerometer_ADXL500.h>
 
   // Receiver declaration
   #define RECEIVER_328P
@@ -86,11 +84,7 @@
     #undef POWERED_BY_VIN        
   #endif
 
-  #ifdef AltitudeHoldBaro    
-    #define BMP085
-  #endif
-
-//  #undef AltitudeHoldBaro
+  #undef AltitudeHoldBaro
   #undef AltitudeHoldRangeFinder
   #undef CameraControl
   #undef OSD
@@ -118,7 +112,6 @@
   }
 
 #endif
-
 
 //********************************************************
 //********************************************************
@@ -601,7 +594,7 @@ void loop () {
         readGps();
 //        gpsdump();
       #endif
-    }
+    }   
 
     previousTime = currentTime;
   }
