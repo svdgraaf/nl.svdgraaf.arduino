@@ -219,6 +219,11 @@ void readSerialCommand() {
         readFloatSerial();
       #endif
       break;
+    #ifdef RemotePCReceiver
+    case 'Q': // Remote Joystick command
+      readReceiverPC();
+    break;
+    #endif
 
     case 'W': // Write all user configurable values to EEPROM
       writeEEPROM(); // defined in DataStorage.h
