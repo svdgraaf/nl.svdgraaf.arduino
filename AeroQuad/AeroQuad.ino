@@ -42,9 +42,9 @@
 #include "PID.h"
 #include <AQMath.h>
 #include <FourtOrderFilter.h>
-#ifdef BattMonitor
-  #include <BatteryMonitorTypes.h>
-#endif
+//#ifdef BattMonitor
+//  #include <BatteryMonitorTypes.h>
+//#endif
 
 //********************************************************
 //********************************************************
@@ -63,26 +63,26 @@
 
   // Accelerometer declaraion
   #include <Accelerometer_ADXL345.h>
-
+  
   // Receiver declaration
-  #define RECEIVER_328P
-
+  #define Receiver_PPM
+  
   // Motor declaration
   #define MOTOR_PWM
-
+  
   // Altitude declaration
   #ifdef AltitudeHoldBaro
     #define BMP085
   #endif
   
   // Battery Monitor declaration
-  #ifdef BattMonitor
-    #define BattDefaultConfig DEFINE_BATTERY(0, 0, 15, 0.9, BM_NOPIN, 0, 0)
-  #else
+//  #ifdef BattMonitor
+//    #define BattDefaultConfig DEFINE_BATTERY(0, 0, 15, 0.9, BM_NOPIN, 0, 0)
+//  #else
     #undef BattMonitorAutoDescent
     #undef BattCellCount
     #undef POWERED_BY_VIN        
-  #endif
+//  #endif
 
 //  #undef AltitudeHoldBaro
 //  #undef AltitudeHoldRangeFinder
@@ -199,18 +199,18 @@
 //*************** BATTERY MONITOR DECLARATION ************
 //********************************************************
 #ifdef BattMonitor
-  #include <BatteryMonitor.h>
-  #ifndef BattCustomConfig
-    #define BattCustomConfig BattDefaultConfig
-  #endif
-  struct BatteryData batteryData[] = {BattCustomConfig};
+//  #include <BatteryMonitor.h>
+//  #ifndef BattCustomConfig
+//    #define BattCustomConfig BattDefaultConfig
+//  #endif
+//  struct BatteryData batteryData[] = {BattCustomConfig};
 #endif
 //********************************************************
 //************** CAMERA CONTROL DECLARATION **************
 //********************************************************
 // used only on mega for now
 #ifdef CameraControl
-  #include <CameraStabilizer_Aeroquad.h>
+//  #include <CameraStabilizer_Aeroquad.h>
 #endif
 
 
@@ -517,6 +517,10 @@ void loop () {
       #endif
 
 
+      // Listen for configuration commands and reports telemetry
+      readSerialCommand(); // defined in SerialCom.pde
+      sendSerialTelemetry(); // defined in SerialCom.pde  
+
       // Evaluate are here because we want it to be synchronized with the processFlightControl
       #if defined AltitudeHoldBaro
         measureBaroSum(); 
@@ -535,13 +539,12 @@ void loop () {
       processFlightControl();
       
       #ifdef BinaryWrite
-        if (fastTransfer == ON) {
+        if (  fastTransfer == ON) {
           // write out fastTelemetry to Configurator or openLog
           fastTelemetry();
         }
       #endif
-
-
+      
     }
 
     // ================================================================
@@ -561,6 +564,7 @@ void loop () {
         cameraControlSetYaw(kinematicsAngle[ZAXIS]);
         cameraControlMove();
       #endif
+      
     }
 
     // ================================================================
@@ -577,10 +581,6 @@ void loop () {
       #if defined(BattMonitor)
         measureBatteryVoltage(G_Dt*1000.0);
       #endif
-
-      // Listen for configuration commands and reports telemetry
-      readSerialCommand(); // defined in SerialCom.pde
-      sendSerialTelemetry(); // defined in SerialCom.pde
 
       #ifdef OSD_SYSTEM_MENU
         updateOSDMenu();

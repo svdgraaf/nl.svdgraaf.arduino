@@ -30,7 +30,8 @@
 // Flight Software Version
 #define SOFTWARE_VERSION 3.0
 
-#define BAUD 115200
+//#define BAUD 115200
+#define BAUD 19200
 //#define BAUD 111111 // use this to be compatible with USB and XBee connections
 //#define BAUD 57600
 

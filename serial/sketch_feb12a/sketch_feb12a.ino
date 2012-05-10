@@ -3,7 +3,7 @@ int incomingByte = 0;
 
 void setup() {
   // initialize serial:
-  Serial.begin(9600);
+  Serial.begin(19200);
 }
 
 void loop() {
